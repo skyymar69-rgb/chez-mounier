@@ -49,179 +49,135 @@ interface Formula {
   supplement?: string;
 }
 
-const menuData: MenuSection[] = [
-  {
-    title: "Les entrées",
-    items: [
-      { name: "Salade lyonnaise", description: "Croûtons, lardons et œuf poché sur un lit de salade", price: "11,00 €", tags: ["viande"], allergens: "Œuf, gluten", maison: true },
-      { name: "Salade de chèvre chaud", description: "Fromage de chèvre chaud sur toast avec salade", price: "10,50 €", tags: ["vegetarien"], allergens: "Lait, gluten" },
-      { name: "Hareng en salade", description: "Filets de harengs marinés, pommes de terre tièdes et salade", price: "10,50 €", tags: ["poisson"], allergens: "Poisson, moutarde" },
-      { name: "Salade aux foies de volaille", description: "Foies de volaille poêlés sur lit de salade", price: "11,00 €", tags: ["viande"], allergens: "Lait" },
-      { name: "La poêlée de foies de volaille à partager", description: "Pour 3 personnes — foies de volaille et salade", price: "22,00 €", tags: ["viande"], allergens: "Lait" },
-      { name: "Gâteau de foie de volaille, sauce tomate", description: "Pâté de foies de volaille, sauce tomate aux herbes", price: "12,00 €", tags: ["viande"], allergens: "Œuf, lait" },
-      { name: "Gnafron à la crème", description: "Gratin de rondelles de saucisson à cuire, crème et gruyère râpé", price: "12,00 €", tags: ["viande"], allergens: "Lait, gluten", maison: true },
-      { name: "Gnafron à la crème et son gâteau de foie de volaille", description: "Gratin de saucisson accompagné du pâté de foies maison", price: "12,50 €", tags: ["viande"], allergens: "Œuf, lait, gluten", maison: true },
-      { name: "Œufs vigneronne", description: "Œuf poché sur toast et sa fameuse sauce au vin rouge", price: "11,50 €", tags: ["vegetarien"], allergens: "Œuf, sulfites" },
-      { name: "Salade des gones", description: "Salade composée avec pied de veau, museau de bœuf, lentilles, cervelas", price: "10,50 €", tags: ["viande"] },
-      { name: "Salade verte", description: "Salade verte de saison", price: "7,00 €", tags: ["vegetarien"] },
-    ],
-  },
-  {
-    title: "Les spécialités lyonnaises",
-    items: [
-      { name: "Saucisson chaud, pommes vapeur et salade verte", description: "Saucisson à cuire, pommes de terre vapeur et salade", price: "12,50 €", tags: ["viande"], allergens: "Gluten" },
-      { name: "Tête de veau, sauce gribiche", description: "Tête de veau pochée, sauce froide aux câpres, moutarde et cornichons", price: "16,50 €", tags: ["viande"], allergens: "Œuf, moutarde" },
-      { name: "Tripes à la tomate", description: "Tripes mijotées en sauce tomate, pommes vapeur", price: "12,00 €", tags: ["viande"], allergens: "Céleri" },
-      { name: "Andouillette à la ficelle à la fraise de veau « maison Bobosse » sauce moutarde", description: "Andouillette tirée à la ficelle, sauce moutarde", price: "19,50 €", tags: ["viande"], allergens: "Moutarde", maison: true },
-      { name: "Tablier de sapeur, sauce tartare", description: "Gras-double pané et doré, sauce tartare maison", price: "13,00 €", tags: ["viande"], allergens: "Œuf, gluten, moutarde", maison: true },
-      { name: "Poêlée de gras double", description: "Tripes émincées poêlées aux oignons et vinaigre", price: "13,00 €", tags: ["viande"] },
-      { name: "Poêlée de gras double et tablier de sapeur, sauce tartare", description: "Le duo : gras double poêlé et tablier de sapeur pané", price: "14,50 €", tags: ["viande"], allergens: "Œuf, gluten, moutarde", maison: true },
-      { name: "Boudin noir à la crème d'oignons", description: "Boudin noir grillé, crème d'oignons fondante", price: "12,50 €", tags: ["viande"] },
-      { name: "½ Rognon de veau flambé au cognac et échalotes", description: "Demi-rognon de veau flambé au cognac, sauce échalotes", price: "19,50 €", tags: ["viande"], allergens: "Lait" },
-      { name: "Quenelle de brochet sauce Nantua", description: "Quenelle « soufflé » gratinée, sauce aux écrevisses — en plat unique, temps de préparation 20 min", price: "13,50 €", tags: ["poisson"], allergens: "Crustacés, œuf, gluten, lait", maison: true },
-    ],
-  },
-  {
-    title: "Les viandes",
-    items: [
-      { name: "Onglet de bœuf aux échalotes", description: "Onglet de bœuf grillé (env. 180 g), sauce échalotes", price: "18,50 €", tags: ["viande"], allergens: "Lait" },
-      { name: "Pièce du boucher aux échalotes ou sauce St Marcellin", description: "Pièce de bœuf (250 g), sauce échalotes ou sauce au Saint-Marcellin", price: "24,50 €", tags: ["viande"], allergens: "Lait" },
-      { name: "Plat du jour", description: "Selon l'inspiration du chef et le marché du jour", price: "12,00 €", tags: ["viande"] },
-    ],
-  },
-  {
-    title: "Les poissons et plats végétariens",
-    items: [
-      { name: "Assiette végétarienne", description: "Assiette composée de légumes de saison", price: "8,50 €", tags: ["vegetarien"] },
-      { name: "Filet de lieu à la meunière", description: "Filet de lieu noir cuit au beurre et citron", price: "12,00 €", tags: ["poisson"], allergens: "Poisson, lait" },
-    ],
-  },
-  {
-    title: "Les fromages",
-    items: [
-      { name: "½ Saint-Marcellin de la Mère Richard", description: "Coulant et crémeux, affiné aux Halles de Lyon", price: "7,50 €", tags: ["vegetarien"], allergens: "Lait", maison: true },
-      { name: "Fromage de chèvre de Mr Raynaud", description: "Fromage de chèvre fermier", price: "7,00 €", tags: ["vegetarien"], allergens: "Lait" },
-      { name: "Cervelle de canut", description: "Fromage blanc, herbes fraîches, échalotes, huile d'olive", price: "7,00 €", tags: ["vegetarien"], allergens: "Lait", maison: true },
-      { name: "Fromage blanc faisselle", description: "Faisselle fermière nature", price: "6,00 €", tags: ["vegetarien"], allergens: "Lait" },
-    ],
-  },
-  {
-    title: "Les desserts",
-    items: [
-      { name: "Tarte aux pralines roses", description: "Pralines de Lyon, pâte brisée maison", price: "9,00 €", tags: ["vegetarien"], allergens: "Gluten, œuf, lait, fruits à coque", maison: true },
-      { name: "Île flottante", description: "Meringue pochée, crème anglaise vanille, caramel", price: "8,50 €", tags: ["vegetarien"], allergens: "Œuf, lait" },
-      { name: "Mousse au chocolat", description: "Chocolat noir, crème fouettée", price: "8,00 €", tags: ["vegetarien"], allergens: "Œuf, lait" },
-      { name: "Crème caramel", description: "Crème aux œufs onctueuse, caramel ambré", price: "7,50 €", tags: ["vegetarien"], allergens: "Œuf, lait" },
-      { name: "Faisselle au coulis de fruits", description: "Faisselle fermière, coulis frais de saison", price: "7,00 €", tags: ["vegetarien"], allergens: "Lait" },
-    ],
-  },
-  {
-    title: "Les eaux minérales",
-    items: [
-      { name: "Evian — litre", description: "", price: "5,00 €", tags: ["all", "boissons"] },
-      { name: "Evian — ½ litre", description: "", price: "3,50 €", tags: ["all", "boissons"] },
-      { name: "Badoit — litre", description: "", price: "5,00 €", tags: ["all", "boissons"] },
-      { name: "Badoit — ½ litre", description: "", price: "3,50 €", tags: ["all", "boissons"] },
-    ],
-  },
-  {
-    title: "Les vins",
-    items: [
-      { name: "Mâcon blanc « chardonnay » (12,5°)", description: "Verre 4,50 € · ¼ 7,00 € · Pot 12,00 €", price: "4,50 – 12,00 €", tags: ["all", "boissons"], allergens: "Sulfites" },
-      { name: "Rosé « Côte de Provence » (12°)", description: "Verre 4,00 € · ¼ 6,00 € · Pot 10,50 €", price: "4,00 – 10,50 €", tags: ["all", "boissons"], allergens: "Sulfites" },
-      { name: "Côte du Rhône (13°)", description: "Verre 4,50 € · ¼ 7,00 € · Pot 12,00 €", price: "4,50 – 12,00 €", tags: ["all", "boissons"], allergens: "Sulfites" },
-      { name: "Saint Joseph, cave de Saint Désirat", description: "Verre 6,50 € · ¼ 11,50 € · Pot 18,50 €", price: "6,50 – 18,50 €", tags: ["all", "boissons"], allergens: "Sulfites" },
-      { name: "Beaujolais village Boulet (12,5°)", description: "Verre 4,00 € · ¼ 6,00 € · Pot 11,00 €", price: "4,00 – 11,00 €", tags: ["all", "boissons"], allergens: "Sulfites" },
-      { name: "Moulin à vent Boulet (13°)", description: "Verre 4,50 € · ¼ 7,00 € · Pot 12,00 €", price: "4,50 – 12,00 €", tags: ["all", "boissons"], allergens: "Sulfites" },
-      { name: "Juliénas Boulet (13°)", description: "Verre 4,50 € · ¼ 7,00 € · Pot 12,00 €", price: "4,50 – 12,00 €", tags: ["all", "boissons"], allergens: "Sulfites" },
-      { name: "Chiroubles Maison Passot (13°)", description: "Verre 4,50 € · ¼ 7,00 € · Pot 12,00 €", price: "4,50 – 12,00 €", tags: ["all", "boissons"], allergens: "Sulfites" },
-    ],
-  },
-];
+function getMenuData(t: (k: string) => string): MenuSection[] {
+  return [
+    {
+      title: t("m.sec_starters"),
+      items: [
+        { name: t("m.salade_lyonnaise"), description: t("m.salade_lyonnaise_d"), price: "11,00 €", tags: ["viande"], allergens: t("m.alg_egg_gluten"), maison: true },
+        { name: t("m.salade_chevre"), description: t("m.salade_chevre_d"), price: "10,50 €", tags: ["vegetarien"], allergens: t("m.alg_milk_gluten") },
+        { name: t("m.hareng"), description: t("m.hareng_d"), price: "10,50 €", tags: ["poisson"], allergens: t("m.alg_fish_mustard") },
+        { name: t("m.salade_foies"), description: t("m.salade_foies_d"), price: "11,00 €", tags: ["viande"], allergens: t("m.alg_milk") },
+        { name: t("m.poelee_foies"), description: t("m.poelee_foies_d"), price: "22,00 €", tags: ["viande"], allergens: t("m.alg_milk") },
+        { name: t("m.gateau_foie"), description: t("m.gateau_foie_d"), price: "12,00 €", tags: ["viande"], allergens: t("m.alg_egg_milk") },
+        { name: t("m.gnafron"), description: t("m.gnafron_d"), price: "12,00 €", tags: ["viande"], allergens: t("m.alg_milk_gluten"), maison: true },
+        { name: t("m.gnafron_gateau"), description: t("m.gnafron_gateau_d"), price: "12,50 €", tags: ["viande"], allergens: t("m.alg_egg_milk_gluten"), maison: true },
+        { name: t("m.oeufs_vigneronne"), description: t("m.oeufs_vigneronne_d"), price: "11,50 €", tags: ["vegetarien"], allergens: t("m.alg_egg_sulfites") },
+        { name: t("m.salade_gones"), description: t("m.salade_gones_d"), price: "10,50 €", tags: ["viande"] },
+        { name: t("m.salade_verte"), description: t("m.salade_verte_d"), price: "7,00 €", tags: ["vegetarien"] },
+      ],
+    },
+    {
+      title: t("m.sec_specialties"),
+      items: [
+        { name: t("m.saucisson_chaud"), description: t("m.saucisson_chaud_d"), price: "12,50 €", tags: ["viande"], allergens: t("m.alg_gluten") },
+        { name: t("m.tete_veau"), description: t("m.tete_veau_d"), price: "16,50 €", tags: ["viande"], allergens: t("m.alg_egg_mustard") },
+        { name: t("m.tripes"), description: t("m.tripes_d"), price: "12,00 €", tags: ["viande"], allergens: t("m.alg_celery") },
+        { name: t("m.andouillette"), description: t("m.andouillette_d"), price: "19,50 €", tags: ["viande"], allergens: t("m.alg_mustard"), maison: true },
+        { name: t("m.tablier_sapeur"), description: t("m.tablier_sapeur_d"), price: "13,00 €", tags: ["viande"], allergens: t("m.alg_egg_gluten_mustard"), maison: true },
+        { name: t("m.poelee_gras_double"), description: t("m.poelee_gras_double_d"), price: "13,00 €", tags: ["viande"] },
+        { name: t("m.duo_gras_tablier"), description: t("m.duo_gras_tablier_d"), price: "14,50 €", tags: ["viande"], allergens: t("m.alg_egg_gluten_mustard"), maison: true },
+        { name: t("m.boudin_noir"), description: t("m.boudin_noir_d"), price: "12,50 €", tags: ["viande"] },
+        { name: t("m.rognon_veau"), description: t("m.rognon_veau_d"), price: "19,50 €", tags: ["viande"], allergens: t("m.alg_milk") },
+        { name: t("m.quenelle"), description: t("m.quenelle_d"), price: "13,50 €", tags: ["poisson"], allergens: t("m.alg_crustacean_egg_gluten_milk"), maison: true },
+      ],
+    },
+    {
+      title: t("m.sec_meats"),
+      items: [
+        { name: t("m.onglet"), description: t("m.onglet_d"), price: "18,50 €", tags: ["viande"], allergens: t("m.alg_milk") },
+        { name: t("m.piece_boucher"), description: t("m.piece_boucher_d"), price: "24,50 €", tags: ["viande"], allergens: t("m.alg_milk") },
+        { name: t("m.plat_jour"), description: t("m.plat_jour_d"), price: "12,00 €", tags: ["viande"] },
+      ],
+    },
+    {
+      title: t("m.sec_fish_veg"),
+      items: [
+        { name: t("m.assiette_veg"), description: t("m.assiette_veg_d"), price: "8,50 €", tags: ["vegetarien"] },
+        { name: t("m.lieu_meuniere"), description: t("m.lieu_meuniere_d"), price: "12,00 €", tags: ["poisson"], allergens: t("m.alg_fish_milk") },
+      ],
+    },
+    {
+      title: t("m.sec_cheese"),
+      items: [
+        { name: t("m.st_marcellin"), description: t("m.st_marcellin_d"), price: "7,50 €", tags: ["vegetarien"], allergens: t("m.alg_milk"), maison: true },
+        { name: t("m.chevre_raynaud"), description: t("m.chevre_raynaud_d"), price: "7,00 €", tags: ["vegetarien"], allergens: t("m.alg_milk") },
+        { name: t("m.cervelle_canut"), description: t("m.cervelle_canut_d"), price: "7,00 €", tags: ["vegetarien"], allergens: t("m.alg_milk"), maison: true },
+        { name: t("m.faisselle"), description: t("m.faisselle_d"), price: "6,00 €", tags: ["vegetarien"], allergens: t("m.alg_milk") },
+      ],
+    },
+    {
+      title: t("m.sec_desserts"),
+      items: [
+        { name: t("m.tarte_pralines"), description: t("m.tarte_pralines_d"), price: "9,00 €", tags: ["vegetarien"], allergens: t("m.alg_gluten_egg_milk_nuts"), maison: true },
+        { name: t("m.ile_flottante"), description: t("m.ile_flottante_d"), price: "8,50 €", tags: ["vegetarien"], allergens: t("m.alg_egg_milk") },
+        { name: t("m.mousse_chocolat"), description: t("m.mousse_chocolat_d"), price: "8,00 €", tags: ["vegetarien"], allergens: t("m.alg_egg_milk") },
+        { name: t("m.creme_caramel"), description: t("m.creme_caramel_d"), price: "7,50 €", tags: ["vegetarien"], allergens: t("m.alg_egg_milk") },
+        { name: t("m.faisselle_coulis"), description: t("m.faisselle_coulis_d"), price: "7,00 €", tags: ["vegetarien"], allergens: t("m.alg_milk") },
+      ],
+    },
+    {
+      title: t("m.sec_water"),
+      items: [
+        { name: "Evian — litre", description: "", price: "5,00 €", tags: ["all", "boissons"] },
+        { name: "Evian — ½ litre", description: "", price: "3,50 €", tags: ["all", "boissons"] },
+        { name: "Badoit — litre", description: "", price: "5,00 €", tags: ["all", "boissons"] },
+        { name: "Badoit — ½ litre", description: "", price: "3,50 €", tags: ["all", "boissons"] },
+      ],
+    },
+    {
+      title: t("m.sec_wines"),
+      items: [
+        { name: "Mâcon blanc « chardonnay » (12,5°)", description: t("m.wine_price_format_1"), price: "4,50 – 12,00 €", tags: ["all", "boissons"], allergens: t("m.alg_sulfites") },
+        { name: "Rosé « Côte de Provence » (12°)", description: t("m.wine_price_format_2"), price: "4,00 – 10,50 €", tags: ["all", "boissons"], allergens: t("m.alg_sulfites") },
+        { name: "Côte du Rhône (13°)", description: t("m.wine_price_format_1"), price: "4,50 – 12,00 €", tags: ["all", "boissons"], allergens: t("m.alg_sulfites") },
+        { name: "Saint Joseph, cave de Saint Désirat", description: t("m.wine_price_format_3"), price: "6,50 – 18,50 €", tags: ["all", "boissons"], allergens: t("m.alg_sulfites") },
+        { name: "Beaujolais village Boulet (12,5°)", description: t("m.wine_price_format_4"), price: "4,00 – 11,00 €", tags: ["all", "boissons"], allergens: t("m.alg_sulfites") },
+        { name: "Moulin à vent Boulet (13°)", description: t("m.wine_price_format_1"), price: "4,50 – 12,00 €", tags: ["all", "boissons"], allergens: t("m.alg_sulfites") },
+        { name: "Juliénas Boulet (13°)", description: t("m.wine_price_format_1"), price: "4,50 – 12,00 €", tags: ["all", "boissons"], allergens: t("m.alg_sulfites") },
+        { name: "Chiroubles Maison Passot (13°)", description: t("m.wine_price_format_1"), price: "4,50 – 12,00 €", tags: ["all", "boissons"], allergens: t("m.alg_sulfites") },
+      ],
+    },
+  ];
+}
 
-const formulasData: Formula[] = [
-  {
-    name: "Menu à 18,50 €",
-    price: "18,50 €",
-    starters: [
-      "Salade des gones (pied de veau, museau de bœuf, lentilles, cervelas)",
-      "Salade lyonnaise (croûtons, lardons et œuf poché)",
-      "Salade de chèvre chaud",
-      "Gâteau de foie de volaille, sauce tomate",
-    ],
-    mains: [
-      "Andouillette sauce moutarde",
-      "Filet de lieu noir à la meunière",
-      "Boudin noir à la crème d'oignons",
-      "Tripes à la tomate",
-      "Plat du jour",
-    ],
-    mainsNote: "Tous nos plats sont accompagnés de légumes et de féculents (pas de frites).",
-    cheese: [
-      "½ St Marcellin de la Mère Richard",
-      "Fromage blanc faisselle",
-      "Dessert ou entremet maison",
-    ],
-  },
-  {
-    name: "Menu à 25,50 €",
-    price: "25,50 €",
-    starters: [
-      "Hareng en salade",
-      "Gnafron à la crème (rondelle de saucisson à cuire gratinées au four avec crème, œuf et gruyère râpé)",
-      "Salade aux foies de volaille",
-      "Une entrée aux choix dans le menu à 18,00 €",
-    ],
-    mains: [
-      "Andouillette à la ficelle à la fraise de veau de la Maison Bobosse, sauce moutarde (sup. 5,00 €)",
-      "Quenelle de brochet sauce Nantua et son riz",
-      "Tablier de sapeur sauce tartare (tripes de bœuf panées)",
-      "Poêlée de gras double (tripes de bœuf poêlées avec oignons, vin blanc et vinaigre)",
-    ],
-    mainsNote: "Tous nos plats sont accompagnés de légumes et de féculents. Pas de frites.",
-    cheese: [
-      "½ St Marcellin de la Mère Richard",
-      "Fromage de chèvre de Mr Raynaud",
-      "Cervelle de canut ou fromage blanc faisselle",
-      "Dessert ou entremet",
-    ],
-  },
-  {
-    name: "Menu à 29,50 €",
-    price: "29,50 €",
-    starters: [
-      "Œufs vigneronne",
-      "Saucisson chaud, pommes vapeur",
-      "Gnafron à la crème et gâteau de foie de volaille",
-    ],
-    mains: [
-      "Tête de veau, sauce gribiche",
-      "Onglet de bœuf aux échalotes (sup. 2,00 €)",
-      "Tablier de sapeur sauce tartare et poêlée de gras double",
-    ],
-    mainsNote: "Tous nos plats sont accompagnés de légumes et de féculents. Pas de frites.",
-    cheese: [
-      "Fromages aux choix",
-      "Dessert (ou entremet) maison",
-    ],
-  },
-  {
-    name: "Menu des gones — 11,00 € (jusqu'à 10 ans)",
-    price: "11,00 €",
-    note: "Jusqu'à 10 ans",
-    starters: [],
-    mains: [
-      "Andouillette nature ou à la moutarde",
-      "Filet de lieu noir meunière",
-      "Saucisson chaud, pommes vapeur",
-      "Plat du jour",
-    ],
-    mainsNote: "Tous nos plats sont accompagnés de légumes et de féculents (pas de frites).",
-    cheese: [
-      "Fromage ou dessert ou entremet",
-    ],
-  },
-];
+function getFormulasData(t: (k: string) => string): Formula[] {
+  return [
+    {
+      name: t("m.f1_name"),
+      price: "18,50 €",
+      starters: [t("m.f1_s1"), t("m.f1_s2"), t("m.f1_s3"), t("m.f1_s4")],
+      mains: [t("m.f1_m1"), t("m.f1_m2"), t("m.f1_m3"), t("m.f1_m4"), t("m.f1_m5")],
+      mainsNote: t("m.formulas_sides_note"),
+      cheese: [t("m.f1_c1"), t("m.f1_c2"), t("m.f1_c3")],
+    },
+    {
+      name: t("m.f2_name"),
+      price: "25,50 €",
+      starters: [t("m.f2_s1"), t("m.f2_s2"), t("m.f2_s3"), t("m.f2_s4")],
+      mains: [t("m.f2_m1"), t("m.f2_m2"), t("m.f2_m3"), t("m.f2_m4")],
+      mainsNote: t("m.formulas_sides_note"),
+      cheese: [t("m.f2_c1"), t("m.f2_c2"), t("m.f2_c3"), t("m.f2_c4")],
+    },
+    {
+      name: t("m.f3_name"),
+      price: "29,50 €",
+      starters: [t("m.f3_s1"), t("m.f3_s2"), t("m.f3_s3")],
+      mains: [t("m.f3_m1"), t("m.f3_m2"), t("m.f3_m3")],
+      mainsNote: t("m.formulas_sides_note"),
+      cheese: [t("m.f3_c1"), t("m.f3_c2")],
+    },
+    {
+      name: t("m.f4_name"),
+      price: "11,00 €",
+      note: t("m.f4_note"),
+      starters: [],
+      mains: [t("m.f4_m1"), t("m.f4_m2"), t("m.f4_m3"), t("m.f4_m4")],
+      mainsNote: t("m.formulas_sides_note"),
+      cheese: [t("m.f4_c1")],
+    },
+  ];
+}
 
 function MenuPage() {
   const [filter, setFilter] = useState<Filter>("all");
@@ -236,6 +192,8 @@ function MenuPage() {
     { key: "boissons", label: t("menu_page.filter_drinks"), icon: <Wine className="h-3.5 w-3.5" /> },
   ];
 
+  const menuData = getMenuData(t);
+  const formulasData = getFormulasData(t);
   const showFormulas = filter === "formules";
 
   return (
