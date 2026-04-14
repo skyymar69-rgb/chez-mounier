@@ -141,7 +141,7 @@ export default function Footer() {
               href="https://internet.kayzen-lyon.fr"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gold hover:text-gold transition-colors"
+              className="text-gold underline underline-offset-2 decoration-gold/40 hover:decoration-gold transition-colors"
             >
               Agence Web Kayzen
             </a>

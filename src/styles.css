@@ -85,7 +85,7 @@
   /* Tokens bistro */
   --warm: #1A1A1A;                    /* noir charbon */
   --warm-foreground: #F5F0E8;
-  --gold: #8A7024;                    /* or chaud — WCAG AA sur crème #F5F0E8 */
+  --gold: #7A6318;                    /* or chaud — WCAG AA 5.1:1 sur crème #F5F0E8 */
   --gold-foreground: #1A1A1A;
   --cream: #F5F0E8;                   /* crème cassé */
   --cream-foreground: #1A1A1A;
@@ -312,6 +312,11 @@ html {
 }
 .animate-marquee-slow {
   animation: marquee 80s linear infinite;
+}
+
+/* Gold on dark surfaces — ensures WCAG AA 4.5:1 contrast */
+.bg-warm {
+  --gold: #C9A84C;
 }
 
 /* High contrast mode */

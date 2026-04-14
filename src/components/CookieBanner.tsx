@@ -38,7 +38,7 @@ export default function CookieBanner() {
         <div className="flex-1">
           <p className="text-sm leading-relaxed">
             {t("cookie.message")}{" "}
-            <Link to="/confidentialite" className="text-gold hover:underline">
+            <Link to="/confidentialite" className="text-gold underline underline-offset-2 decoration-gold/40 hover:decoration-gold">
               {t("cookie.learnmore")}
             </Link>
           </p>
