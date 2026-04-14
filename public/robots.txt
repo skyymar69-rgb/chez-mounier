@@ -1,0 +1,38 @@
+# Chez Mounier — Bouchon Lyonnais depuis 1985
+# https://chezmounier.fr
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemaps
+Sitemap: https://chezmounier.fr/sitemap.xml
+
+# LLMs
+# See https://llmstxt.org for the specification
+# Structured information for AI assistants and large language models
+User-agent: GPTBot
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /
+
+User-agent: Claude-Web
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /
+
+User-agent: Google-Extended
+Allow: /

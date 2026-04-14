@@ -1,0 +1,37 @@
+# Chez Mounier
+
+> Bouchon lyonnais authentique, cuisine traditionnelle faite maison depuis 1985. 3 Rue des Marronniers, 69002 Lyon.
+
+Chez Mounier est un restaurant familial fondé en 1985 par Marc Mounier au coeur de la Presqu'ile lyonnaise. Trois générations se succèdent : Marc (fondateur), Chrystelle (sa fille, actuelle patronne) et Manon (petite-fille, en salle). Toute la cuisine est faite maison, y compris la pâte à tarte et les sauces.
+
+## Informations pratiques
+
+- Adresse : 3 Rue des Marronniers, 69002 Lyon, France
+- Téléphone : 04 78 37 79 26
+- Site web : https://chezmounier.fr
+- Horaires : Mardi-Vendredi 12h-14h15 et 19h-22h15, Samedi 12h-14h30 et 19h-22h15
+- Fermé : Dimanche et Lundi
+- Gamme de prix : 9,50-19,50 EUR (menus complets sous 20 EUR)
+- Paiements : CB, Visa, Mastercard, Maestro, Ticket Restaurant, Espèces
+- Réservation : Par téléphone ou en ligne
+- Accès : Métro Bellecour (ligne A), 3 min à pied
+- Équipements : Terrasse, Accès PMR, WiFi, Climatisation
+
+## Spécialités
+
+- Le Gnafron : saucisson en appareil de crème et fromage râpé, recette originale de Marc Mounier
+- Quenelles de brochet sauce Nantua
+- Tablier de sapeur, sauce gribiche maison
+- Salade lyonnaise
+- Cervelle de canut aux herbes
+- Saint-Marcellin de la Mère Richard
+- Tarte aux pralines roses de Lyon
+
+## Pages du site
+
+- [Accueil](https://chezmounier.fr/)
+- [La Carte](https://chezmounier.fr/menu)
+- [Notre Histoire](https://chezmounier.fr/histoire)
+- [Galerie Photos](https://chezmounier.fr/galerie)
+- [Contact & Accès](https://chezmounier.fr/contact)
+- [Informations complètes pour les LLMs](https://chezmounier.fr/llms-full.txt)
